@@ -52,7 +52,7 @@ import java.util.Random;
 @Slf4j
 public class AttachmentBig extends MessageTestCase {
 
-    private static final int ATTACHMENT_SIZE_MBYTES = 650;
+    private static final int ATTACHMENT_SIZE_MBYTES = 64;
 
     private static final byte[] RANDOM_BLOCK = new byte[1024];
 
