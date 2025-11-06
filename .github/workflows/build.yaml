@@ -131,7 +131,7 @@ jobs:
         uses: actions/upload-artifact@v5
         with:
           name: debian-packages
-          path: src/packages/build/xroad/ubuntu/*.deb
+          path: src/packages/build/ubuntu22.04/*.deb
           compression-level: 0 #No point in compressing these
 #      - name: Packaging and upload artifacts measurement
 #        uses: green-coding-solutions/eco-ci-energy-estimation@v5.0
