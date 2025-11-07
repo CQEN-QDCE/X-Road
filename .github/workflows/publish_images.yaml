@@ -4,7 +4,9 @@ on:
   workflow_run:
     workflows: ["Build and test"]
     types: [completed]
-    branches: [develop, feature/*]
+    branches:
+      - develop
+      - feature/**
 env:
   REGISTRY: ghcr.io
   XROAD_HOME: ${{ github.workspace }}
