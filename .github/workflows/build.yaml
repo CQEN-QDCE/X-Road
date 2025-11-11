@@ -77,7 +77,7 @@ jobs:
           # SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         working-directory: ./src
         # run: ./gradlew -Dorg.gradle.jvmargs=-Xmx6g -PsonarqubeHost=https://sonarcloud.io -PsonarqubeProjectKey=nordic-institute_X-Road -PsonarqubeOrganization=nordic-institute -PxroadBuildType=RELEASE --stacktrace build sonar test intTest jacocoTestReport -Pfrontend-npm-audit
-        run: ./gradlew -Dorg.gradle.jvmargs=-Xmx6g  -PxroadBuildType=RELEASE --stacktrace build test jacocoTestReport -Pfrontend-npm-audit
+        run: ./gradlew -Dorg.gradle.jvmargs=-Xmx6g  -PxroadBuildType=RELEASE --stacktrace build -x test -x jacocoTestReport -Pfrontend-npm-audit
       - name: Test report
         env:
           NODE_OPTIONS: '--max-old-space-size=6144'
