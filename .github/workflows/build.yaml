@@ -78,17 +78,17 @@ jobs:
         working-directory: ./src
         # run: ./gradlew -Dorg.gradle.jvmargs=-Xmx6g -PsonarqubeHost=https://sonarcloud.io -PsonarqubeProjectKey=nordic-institute_X-Road -PsonarqubeOrganization=nordic-institute -PxroadBuildType=RELEASE --stacktrace build sonar test intTest jacocoTestReport -Pfrontend-npm-audit
         run: ./gradlew -Dorg.gradle.jvmargs=-Xmx6g  -PxroadBuildType=RELEASE --stacktrace build -x test -x jacocoTestReport -Pfrontend-npm-audit
-      - name: Test report
-        env:
-          NODE_OPTIONS: '--max-old-space-size=6144'
-        uses: dorny/test-reporter@v2
-        if: success() || failure()
-        with:
-          name: Unit and integration tests
-          path: src/**/build/test-results/**/TEST-*.xml
-          reporter: java-junit
-          list-suites: 'failed'
-          list-tests: 'failed'
+#      - name: Test report
+#        env:
+#          NODE_OPTIONS: '--max-old-space-size=6144'
+#        uses: dorny/test-reporter@v2
+#        if: success() || failure()
+#        with:
+#          name: Unit and integration tests
+#          path: src/**/build/test-results/**/TEST-*.xml
+#          reporter: java-junit
+#          list-suites: 'failed'
+#          list-tests: 'failed'
 #      - name: Build, test and package code execution measurement
 #        uses: green-coding-solutions/eco-ci-energy-estimation@v5.0
 #        with:
