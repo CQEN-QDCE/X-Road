@@ -34,6 +34,8 @@ jobs:
       - name: Download Debian packages
         uses: actions/github-script@v8
         with:
+          run: echo "context.payload.workflow_run.id $context.payload.workflow_run.id"
+
           script: |
             let allArtifacts = await github.rest.actions.listWorkflowRunArtifacts({
                owner: context.repo.owner,
@@ -43,6 +45,7 @@ jobs:
             let matchArtifact = allArtifacts.data.artifacts.filter((artifact) => {
               return artifact.name == ('${{ matrix.architecture }}' == 'amd64' ? "debian-packages" : "debian-packages-arm")
             })[0];
+            echo "matchArtifact.id $matchArtifact.id" 
             let download = await github.rest.actions.downloadArtifact({
                owner: context.repo.owner,
                repo: context.repo.repo,
